@@ -1,0 +1,37 @@
+syntax = "proto3";
+option go_package = "github.com/silkeholmebonnen/disysExamPrep/proto";
+package proto;
+
+service Frontend
+{
+  rpc Bid (BidRequest) returns (Ack);
+  rpc Result (Void) returns (BidResult);
+  rpc StartAuction (Void) returns (Ack);
+}
+
+service Server {
+  rpc UpdateHighestBid (BidRequest) returns (Ack);
+  rpc GetHighestBid (Void) returns (BidResult);
+  rpc StartAuction (Void) returns (Ack);
+}
+
+message Void {}
+
+message BidRequest
+{
+  int32   amount = 1;
+  string  name = 2;
+  int32   processID = 3;
+}
+
+message BidResult
+{
+  int32   amount = 1;
+  string  name = 2;
+  string  auctionStatus = 3;
+}
+
+message Ack
+{
+  string ack = 1;
+}
