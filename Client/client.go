@@ -4,13 +4,15 @@ import (
 	"bufio"
 	"context"
 	"flag"
+	"fmt"
 	"log"
 	"os"
 	"strconv"
 	"strings"
 	"time"
 
-	"github.com/silkeholmebonnen/disysExamPrep/proto"
+	"proto/proto"
+
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -61,6 +63,7 @@ func sendMessage(serverConnection proto.FrontendClient) {
 			startAuction(serverConnection, ctx)
 		} else {
 			log.Println("Client: Unknown command: ", input)
+			fmt.Println("Client: Unknown command: ", input)
 		}
 	}
 }
@@ -78,6 +81,7 @@ func postNewBid(serverConnection proto.FrontendClient, input string, ctx context
 		log.Fatal("Some error occured")
 	} else {
 		log.Println("Client: " + *name + " got response: " + ans.Ack)
+		fmt.Println("Client: " + *name + " got response: " + ans.Ack)
 	}
 }
 
@@ -87,6 +91,7 @@ func logAuctionResult(serverConnection proto.FrontendClient, ctx context.Context
 		log.Fatal("Some error occured")
 	} else {
 		log.Println("Client: " + ans.AuctionStatus + " The highest bid is " + strconv.Itoa(int(ans.Amount)) + " by " + ans.Name)
+		fmt.Println("Client: " + ans.AuctionStatus + " The highest bid is " + strconv.Itoa(int(ans.Amount)) + " by " + ans.Name)
 	}
 }
 
@@ -96,5 +101,6 @@ func startAuction(serverConnection proto.FrontendClient, ctx context.Context) {
 		log.Fatal("Some error occured")
 	} else {
 		log.Println("Client: " + *name + " got response: " + ans.Ack)
+		fmt.Println("Client: " + *name + " got response: " + ans.Ack)
 	}
 }

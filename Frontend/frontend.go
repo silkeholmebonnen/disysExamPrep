@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"flag"
+	"fmt"
 	"log"
 	"net"
 	"os"
@@ -13,7 +14,8 @@ import (
 
 	"google.golang.org/grpc/credentials/insecure"
 
-	proto "github.com/silkeholmebonnen/disysExamPrep/proto"
+	proto "proto/proto"
+
 	"google.golang.org/grpc"
 )
 
@@ -33,6 +35,7 @@ func main() {
 	log.SetFlags(2)
 	flag.Parse()
 	log.Println("Frontend: Frontend started")
+	fmt.Println("Frontend: Frontend started")
 	frontend := &Frontend{
 		serverConnection: getServerConnection(),
 	}
@@ -65,6 +68,7 @@ func getServerConnection() []proto.ServerClient {
 			log.Println("Could not dial server")
 		}
 		log.Printf("Frontend: Dialed server %d\n", port)
+		fmt.Printf("Frontend: Dialed server %d\n", port)
 		conns[i] = proto.NewServerClient(conn)
 	}
 	return conns
@@ -78,6 +82,7 @@ func (frontend *Frontend) Result(ctx context.Context, in *proto.Void) (*proto.Bi
 
 		if err == nil {
 			log.Printf("Frontend: Request result in node %d\n", 8080+i)
+			fmt.Printf("Frontend: Request result in node %d\n", 8080+i)
 			acks[counter] = ack
 			counter++
 		}
@@ -92,12 +97,14 @@ func (frontend *Frontend) Bid(ctx context.Context, in *proto.BidRequest) (*proto
 	counter := 0
 	acks := make([]*proto.Ack, 3)
 	log.Printf("Frontend: Received bid of %d by %s", in.Amount, in.Name)
+	fmt.Printf("Frontend: Received bid of %d by %s", in.Amount, in.Name)
 	for i := 0; i < 3; i++ {
 		conn := frontend.serverConnection[i]
 		ack, err := conn.UpdateHighestBid(ctx, in)
 
 		if err == nil {
 			log.Printf("Frontend: Sends updatehighest bid to node %d\n", 8080+i)
+			fmt.Printf("Frontend: Sends updatehighest bid to node %d\n", 8080+i)
 			acks[counter] = ack
 			counter++
 		}
@@ -116,6 +123,7 @@ func (frontend *Frontend) StartAuction(ctx context.Context, in *proto.Void) (*pr
 		ack, err := frontend.serverConnection[i].StartAuction(ctx, in)
 		if err == nil {
 			log.Printf("Frontend: " + ack.Ack)
+			fmt.Printf("Frontend: " + ack.Ack)
 			acks[counter] = ack
 			counter++
 		}

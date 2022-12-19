@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "github.com/silkeholmebonnen/disysExamPrep/proto";
+option go_package = "proto/proto";
 package proto;
 
 service Frontend

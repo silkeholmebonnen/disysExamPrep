@@ -1,0 +1,103 @@
+15:17:08 Server: Server started
+15:17:16 could not start listener
+15:17:26 could not start listener
+15:17:48 Frontend: Frontend started
+15:17:48 Frontend: Dialed server 8080
+15:17:48 Frontend: Dialed server 8081
+15:17:48 Frontend: Dialed server 8082
+15:18:03 Server: Node running on port 8080 says - An auction has started!
+15:18:03 Frontend: Success
+15:18:03 Client: DefaultName got response: Success
+15:18:06 Frontend: Received bid of 0 by DefaultName
+15:18:06 Frontend: Sends updatehighest bid to node 8080
+15:18:06 Client: DefaultName got response: Your bid is not high enough. The current highest bid is 0 by No bidder yet
+15:23:34 Server: Server started
+15:23:35 could not start listener
+15:23:36 could not start listener
+15:23:39 Frontend: Frontend started
+15:23:39 Frontend: Dialed server 8080
+15:23:39 Frontend: Dialed server 8081
+15:23:39 Frontend: Dialed server 8082
+15:23:45 Server: Node running on port 8080 says - An auction has started!
+15:23:45 Frontend: Success
+15:23:45 Client: DefaultName got response: Success
+15:23:52 could not start listener
+15:23:54 could not start listener
+15:24:05 Server: Node running on port 8080 says - Auction is over. Highest bidder is No bidder yet and the bid is 0
+15:24:41 Server: Server started
+15:24:43 could not start listener
+15:26:17 Server: Server started
+15:26:21 could not start listener
+15:26:24 could not start listener
+15:31:51 Server: Server started
+15:31:56 Server: Server started
+15:32:01 Server: Server started
+15:32:06 Frontend: Frontend started
+15:32:06 Frontend: Dialed server 8080
+15:32:06 Frontend: Dialed server 8081
+15:32:06 Frontend: Dialed server 8082
+15:32:12 Server: Node running on port 8080 says - An auction has started!
+15:32:12 Frontend: Success
+15:32:12 Server: Node running on port 8081 says - An auction has started!
+15:32:12 Frontend: Success
+15:32:12 Server: Node running on port 8082 says - An auction has started!
+15:32:12 Frontend: Success
+15:32:12 Client: DefaultName got response: Success
+15:32:29 Frontend: Received bid of 3 by DefaultName
+15:32:29 Server: Node running on port 8080 says - The highest bid has been updated and is now 3 by DefaultName
+15:32:29 Frontend: Sends updatehighest bid to node 8080
+15:32:29 Server: Node running on port 8081 says - The highest bid has been updated and is now 3 by DefaultName
+15:32:29 Frontend: Sends updatehighest bid to node 8081
+15:32:29 Server: Node running on port 8082 says - The highest bid has been updated and is now 3 by DefaultName
+15:32:29 Frontend: Sends updatehighest bid to node 8082
+15:32:29 Client: DefaultName got response: Success
+15:32:32 Server: Node running on port 8080 says - Auction is over. Highest bidder is DefaultName and the bid is 3
+15:32:32 Server: Node running on port 8081 says - Auction is over. Highest bidder is DefaultName and the bid is 3
+15:32:32 Server: Node running on port 8082 says - Auction is over. Highest bidder is DefaultName and the bid is 3
+15:32:56 Frontend: Request result in node 8080
+15:32:56 Frontend: Request result in node 8081
+15:32:56 Frontend: Request result in node 8082
+15:32:56 Client: Auction has ended. The highest bid is 3 by DefaultName
+15:33:22 Server: Node running on port 8080 says - An auction has started!
+15:33:22 Frontend: Success
+15:33:22 Server: Node running on port 8081 says - An auction has started!
+15:33:22 Frontend: Success
+15:33:22 Server: Node running on port 8082 says - An auction has started!
+15:33:22 Frontend: Success
+15:33:22 Client: DefaultName got response: Success
+15:33:24 Frontend: There is already an auction running
+15:33:24 Frontend: There is already an auction running
+15:33:24 Frontend: There is already an auction running
+15:33:24 Client: DefaultName got response: There is already an auction running
+15:33:29 Frontend: Received bid of 3 by DefaultName
+15:33:29 Server: Node running on port 8080 says - The highest bid has been updated and is now 3 by DefaultName
+15:33:29 Frontend: Sends updatehighest bid to node 8080
+15:33:29 Server: Node running on port 8081 says - The highest bid has been updated and is now 3 by DefaultName
+15:33:29 Frontend: Sends updatehighest bid to node 8081
+15:33:29 Server: Node running on port 8082 says - The highest bid has been updated and is now 3 by DefaultName
+15:33:29 Frontend: Sends updatehighest bid to node 8082
+15:33:29 Client: DefaultName got response: Success
+15:33:32 Frontend: Received bid of 2 by DefaultName
+15:33:32 Frontend: Sends updatehighest bid to node 8080
+15:33:32 Frontend: Sends updatehighest bid to node 8081
+15:33:32 Frontend: Sends updatehighest bid to node 8082
+15:33:32 Client: DefaultName got response: Your bid is not high enough. The current highest bid is 3 by DefaultName
+15:33:36 Frontend: Received bid of 5 by DefaultName
+15:33:36 Server: Node running on port 8080 says - The highest bid has been updated and is now 5 by DefaultName
+15:33:36 Frontend: Sends updatehighest bid to node 8080
+15:33:36 Server: Node running on port 8081 says - The highest bid has been updated and is now 5 by DefaultName
+15:33:36 Frontend: Sends updatehighest bid to node 8081
+15:33:36 Server: Node running on port 8082 says - The highest bid has been updated and is now 5 by DefaultName
+15:33:36 Frontend: Sends updatehighest bid to node 8082
+15:33:36 Client: DefaultName got response: Success
+15:33:39 Frontend: Request result in node 8080
+15:33:39 Frontend: Request result in node 8081
+15:33:39 Frontend: Request result in node 8082
+15:33:39 Client: Auction is ongoing. The highest bid is 5 by DefaultName
+15:33:42 Server: Node running on port 8080 says - Auction is over. Highest bidder is DefaultName and the bid is 5
+15:33:42 Server: Node running on port 8081 says - Auction is over. Highest bidder is DefaultName and the bid is 5
+15:33:42 Server: Node running on port 8082 says - Auction is over. Highest bidder is DefaultName and the bid is 5
+15:33:44 Frontend: Request result in node 8080
+15:33:44 Frontend: Request result in node 8081
+15:33:44 Frontend: Request result in node 8082
+15:33:44 Client: Auction has ended. The highest bid is 5 by DefaultName

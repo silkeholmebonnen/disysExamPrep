@@ -5,13 +5,14 @@ import (
 	context "context"
 	"flag"
 	"log"
+	"fmt"
 	"net"
 	"os"
 	"strconv"
 	"sync"
 	"time"
 
-	"github.com/silkeholmebonnen/disysExamPrep/proto"
+	"proto/proto"
 	"google.golang.org/grpc"
 )
 
@@ -46,6 +47,7 @@ func waitForCrash() {
 	for scanner.Scan() {
 		input := scanner.Text()
 		if input == "crash" {
+			fmt.Printf("Server: Server node %d crashed!!!", *nodePort)
 			log.Fatalf("Server: Server node %d crashed!!!", *nodePort)
 		} 
 		
@@ -79,6 +81,7 @@ func (node *Node) StartAuction(ctx context.Context, in *proto.Void) (*proto.Ack,
 
 func runAuction() {
 		log.Printf("Server: Node running on port %d says - An auction has started!\n", *nodePort)
+		fmt.Printf("Server: Node running on port %d says - An auction has started!\n", *nodePort)
 		startNewAuction()
 		time.Sleep(time.Second * 20)
 		endAuction()
@@ -93,6 +96,7 @@ func startNewAuction() {
 
 func endAuction() {
 	log.Printf("Server: Node running on port %d says - Auction is over. Highest bidder is %s and the bid is %d\n", *nodePort, highestBidder, highestBid)
+	fmt.Printf("Server: Node running on port %d says - Auction is over. Highest bidder is %s and the bid is %d\n", *nodePort, highestBidder, highestBid)
 	isAuctionOver = true
 }
 
@@ -134,6 +138,7 @@ func updateHighestBid(bid *proto.BidRequest) {
 	highestBid = bid.Amount
 	highestBidder = bid.Name
 	log.Printf("Server: Node running on port %d says - The highest bid has been updated and is now %d by %s\n", *nodePort, highestBid, highestBidder)
+	fmt.Printf("Server: Node running on port %d says - The highest bid has been updated and is now %d by %s\n", *nodePort, highestBid, highestBidder)
 	mutex.Unlock()
 }
 
